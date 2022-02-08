@@ -1,0 +1,26 @@
+<div class='container'>
+    <div class="panel-heading">
+        <h1>Add Video</h1>
+    </div>
+    <div class="panel-body">
+        <form [formGroup]='videoForm'>
+            <div class="form-group"> <label for="Title">Title:</label>
+                <input id="Title" class="form-control" type="text" formControlName="Title">
+            </div>
+            <div class="form-group"> <label for="Length">Length:</label>
+                <input id="Length" class="form-control" type="text" formControlName="Length">
+            </div>
+            <div class="form-group"> <label for="Category">Category:</label>
+                <input id="Category" class="form-control" type="text" formControlName="Category">
+            </div>
+            <div class="form-group"> <label for="Format">Format:</label>
+                <input id="Format" class="form-control" type="text" formControlName="Format">
+            </div>
+            <div>
+                <button class="btn btn-success btn-block" (click)="addVideoData(videoForm.value)">
+                    Add Video
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

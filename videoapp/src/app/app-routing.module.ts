@@ -7,12 +7,12 @@ import { VideodetailComponent } from './videodetail/videodetail.component';
 import { VideolistComponent } from './videolist/videolist.component';
 
 const routes: Routes = [
-  {path:'basic', component:BasicComponent},
-  {path:'home', component:HomeComponent},
-  {path:'videos', component:VideolistComponent},
-  {path:'video/:id/:title/:length/:category/:format', component:VideodetailComponent},
-  {path:'addvideo', component:AddvideoComponent},
-  {path:'', redirectTo: 'home',pathMatch:'full'},
+  {path:'basic',component:BasicComponent},
+  {path:'home',component:HomeComponent},
+  {path:'videos',component:VideolistComponent},  
+  {path:'video/:id',component:VideodetailComponent},  
+  {path:'addvideo',component:AddvideoComponent},  
+  {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',redirectTo:'home',pathMatch:'full'}
 ];
 

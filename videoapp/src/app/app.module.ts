@@ -3,15 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BasicComponent } from './basic/basic.component';
 import { HomeComponent } from './home/home.component';
 import { VideolistComponent } from './videolist/videolist.component';
 import { VideoService } from './video.service';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { AddvideoComponent } from './addvideo/addvideo.component';
 import { VideodetailComponent } from './videodetail/videodetail.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
