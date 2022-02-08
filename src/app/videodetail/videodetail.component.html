@@ -1,10 +1,10 @@
 <div class="container">
     <h2>{{ pageTitle }}</h2>
     <br>
-    <h3>{{ title }}</h3>
-    <h3>{{ pageLength }}</h3>
-    <h3>{{ pageCat }}</h3>
-    <h3>{{ pageFormat }}</h3>
+    <h3>{{ title }}: {{video.Title}}</h3>
+    <h3>{{ pageLength }}: {{video.Length}}</h3>
+    <h3>{{ pageCat }}: {{video.Category}}</h3>
+    <h3>{{ pageFormat }}: {{video.Format}}</h3>
 
     <button (click)='onBack()' class="btn btn-primary">Back</button>
 </div>

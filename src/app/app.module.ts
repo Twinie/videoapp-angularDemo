@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddvideoComponent } from './addvideo/addvideo.component';
 import { VideodetailComponent } from './videodetail/videodetail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VideoFilterPipe } from './video-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     VideolistComponent,
     AddvideoComponent,
-    VideodetailComponent
+    VideodetailComponent,
+    VideoFilterPipe
   ],
   imports: [
     BrowserModule,

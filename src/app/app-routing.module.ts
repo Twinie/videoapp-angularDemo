@@ -5,13 +5,14 @@ import { BasicComponent } from './basic/basic.component';
 import { HomeComponent } from './home/home.component';
 import { VideodetailComponent } from './videodetail/videodetail.component';
 import { VideolistComponent } from './videolist/videolist.component';
+import { VideoGuardService } from './video.guard.service';
 
 const routes: Routes = [
   {path:'basic', component:BasicComponent},
   {path:'home', component:HomeComponent},
   {path:'videos', component:VideolistComponent},
-  {path:'video/:id/:title/:length/:category/:format', component:VideodetailComponent},
-  {path:'addvideo', component:AddvideoComponent},
+  {path:'video/:id', component:VideodetailComponent},
+  {path:'addvideo', canActivate:[VideoGuardService], component:AddvideoComponent},
   {path:'', redirectTo: 'home',pathMatch:'full'},
   {path:'**',redirectTo:'home',pathMatch:'full'}
 ];

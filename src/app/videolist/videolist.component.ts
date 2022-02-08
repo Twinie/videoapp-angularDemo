@@ -12,7 +12,7 @@ export class VideolistComponent implements OnInit {
 
   
 myvideos:IVideo[] =[];
-errormessage:any;
+listFilter!:string;
 constructor(private _videoservice:VideoService) {
     
 }

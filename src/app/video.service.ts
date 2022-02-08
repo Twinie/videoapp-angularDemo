@@ -19,6 +19,14 @@ constructor( private _httpclient: HttpClient){
         
     }
 
+    getOneVideo(id:number):Observable<IVideo>{
+        
+      return this._httpclient.get(`${this.serviceUrl}/${id}`)
+      .pipe(map(video => <IVideo>video),
+      catchError(()=>{return throwError("Something went wrong")}));
+        
+    }
+
     addVideos(body:any):Observable<IVideo[]>{
         
       return this._httpclient.post(this.serviceUrl,body)
