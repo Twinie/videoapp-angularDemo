@@ -11,6 +11,7 @@ export class VideoGuardService implements CanActivate {
 
     }
     canActivate(route: ActivatedRouteSnapshot): boolean {
+        console.log(route.url);
         let id =+route.url[1].path;
         if(isNaN(id) || id<1){
             alert('invalid video Id');

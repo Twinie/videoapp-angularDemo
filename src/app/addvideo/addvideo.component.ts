@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../video.service';
-import { FormGroup,FormBuilder } from '@angular/forms';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { of } from 'rxjs/internal/observable/of';
 
 @Component({
   selector: 'app-addvideo',
@@ -9,22 +12,41 @@ import { FormGroup,FormBuilder } from '@angular/forms';
 })
 export class AddvideoComponent implements OnInit {
   videoForm!: FormGroup
-
-  constructor(private _videoservice:VideoService, private _builder:FormBuilder) { 
+  submitted=false;
+unSaved:boolean=true;
+  constructor(private _videoservice:VideoService, private _builder:FormBuilder, private _router:Router) { 
     this.createForm();
   }
 
   ngOnInit(): void {
   }
+  canDeactivate():Observable<boolean> |boolean{
+    if(this.unSaved){
+      const result = window.confirm('There are unsaved changes!');
+      return of(result)
+    }
+    return true;
+  }
 createForm(){
   this.videoForm=this._builder.group({
-    Title: '',
-    Length: '',
-    Category: '',
-    Format: '',
+    Title: ['', Validators.required],
+    Length: ['', Validators.required],
+    Category: ['', Validators.required],
+    Format: ['', Validators.required],
   })
 }
+
+get videoFormControl(){
+  return this.videoForm.controls;
+}
 addVideoData(body:any){
-this._videoservice.addVideos(body).subscribe(()=>alert("video added!"))
+  this.submitted=true;
+if(this.videoForm.valid){
+  this._videoservice.addVideos(body).subscribe(()=>{
+    alert("video added!");
+    this._router.navigate(['/videos']);
+  })
 }
 }
+}
+
